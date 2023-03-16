@@ -1,0 +1,22 @@
+/******************************** DATABASE README **********************************************/
+
+
+/************************************************************************************************
+
+This doc will explain the code necessary for communicating with our databases. 
+
+HOWEVER, before being able to run any of this code, you must have the JDBC driver installed.
+Instructions for intalling and running it through the IntelliJ IDE (other IDEs likely have a
+similar process) provided in the following link:
+
+https://docs.google.com/document/d/1xUgU9wfVyxRlTqAF7QBl_tOhQHyKztShauqpY3h8sGQ/edit?usp=sharing
+
+This document will also have a detailed diagram of the databse, so that you understand how 
+the information is being transmitted and where it's being pulled from. 
+
+Once you have set up the JDBC library, the following code will be helpful for making requests
+to the database, and adding entries. You will need login credentials to execute this code, 
+and I will be providing those though the discord. 
+
+*************************************************************************************************/
+
