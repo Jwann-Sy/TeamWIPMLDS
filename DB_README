@@ -1,22 +1,58 @@
-/******************************** DATABASE README **********************************************/
+/******************************** DATABASE README ***********************************************
 
 
-/************************************************************************************************
+This doc will explain the code necessary for communicating with our databases through Java. 
 
-This doc will explain the code necessary for communicating with our databases. 
-
-HOWEVER, before being able to run any of this code, you must have the JDBC driver installed.
-Instructions for intalling and running it through the IntelliJ IDE (other IDEs likely have a
-similar process) provided in the following link:
+HOWEVER, before being able to run any of this code, you must have the JDBC driver installed. Instructions for intalling and running it through the IntelliJ IDE (other IDEs may have a similar process):
 
 https://docs.google.com/document/d/1xUgU9wfVyxRlTqAF7QBl_tOhQHyKztShauqpY3h8sGQ/edit?usp=sharing
 
-This document will also have a detailed diagram of the databse, so that you understand how 
-the information is being transmitted and where it's being pulled from. 
+This document will also have a detailed diagram of the databse, so that you understand how the information is being transmitted and where it's being pulled from. 
 
-Once you have set up the JDBC library, the following code will be helpful for making requests
-to the database, and adding entries. You will need login credentials to execute this code, 
-and I will be providing those though the discord. 
+Once you have set up the JDBC library, the following code will be helpful for making requests to the database, and adding entries. You will need login credentials to execute this code, and I will be providing those though the discord. 
 
-*************************************************************************************************/
 
+********************************* IMPORTS ******************************************************/
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/******************************** CONNECTING TO DATABASE ***************************************/
+
+// The connection must be made within a try-catch statement. 
+try {
+    // getConnection makes connection with a database using three arguments in quotations.
+		// FIRST ARGUMENT: specifies jdbc driver using mysql, followed by the database host address.
+    // SECOND ARGUMENT: username
+		// THIRD ARGUMENT: password
+    Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com:3306/mldb", "testuser", "ON***user1");
+
+    /**************************** MAKING A QUERY ***********************************************/ 
+		/* A QUERY IN MYSQL IS A WAY TO INTERACT WITH THE DATABASE. YOU CAN USE A QUERY TO REQUEST, INSERT, OR EDIT INFORMATION */
+		
+		//Creates statement object
+    Statement statement = connection.createStatement();
+
+    // Creates ResultSet object, which contains query results.
+		// The query is the argument of statement.executeQuery()
+		// This particular query asks to return everything from the "event" table in our database.
+    ResultSet resultSet = statement.executeQuery("SELECT * FROM event");
+
+    // While there is another entry, print column values
+    while (resultSet.next()) {
+        System.out.print(resultSet.getString("id"));
+        System.out.print(", ");
+        System.out.print(resultSet.getString("date_time"));
+        System.out.print(", ");
+        System.out.print(resultSet.getString("sensor_id"));
+        System.out.print(", ");
+        System.out.println(resultSet.getString("ranger_id"));
+    }
+}
+// this is a general exception catch. Basically a very general way of communicating if we have some error. 
+catch (Exception e){
+    e.printStackTrace();
+}
