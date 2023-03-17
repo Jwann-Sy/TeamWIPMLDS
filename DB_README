@@ -25,8 +25,8 @@ import java.sql.Statement;
 try {
     // getConnection makes connection with a database using three arguments in quotations.
     // FIRST ARGUMENT: specifies jdbc driver using mysql, followed by the database host address.
-    // SECOND ARGUMENT: username
-    // THIRD ARGUMENT: password
+    // SECOND ARGUMENT: database username
+    // THIRD ARGUMENT: database password
     Connection connection = DriverManager.getConnection(
             "jdbc:mysql://SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com:3306/mldb", "testuser", "ON***user1");
 
