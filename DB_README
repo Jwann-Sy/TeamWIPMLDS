@@ -24,21 +24,21 @@ import java.sql.Statement;
 // The connection must be made within a try-catch statement. 
 try {
     // getConnection makes connection with a database using three arguments in quotations.
-		// FIRST ARGUMENT: specifies jdbc driver using mysql, followed by the database host address.
+    // FIRST ARGUMENT: specifies jdbc driver using mysql, followed by the database host address.
     // SECOND ARGUMENT: username
-		// THIRD ARGUMENT: password
+    // THIRD ARGUMENT: password
     Connection connection = DriverManager.getConnection(
             "jdbc:mysql://SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com:3306/mldb", "testuser", "ON***user1");
 
     /**************************** MAKING A QUERY ***********************************************/ 
-		/* A QUERY IN MYSQL IS A WAY TO INTERACT WITH THE DATABASE. YOU CAN USE A QUERY TO REQUEST, INSERT, OR EDIT INFORMATION */
+    /* A QUERY IN MYSQL IS A WAY TO INTERACT WITH THE DATABASE. YOU CAN USE A QUERY TO REQUEST, INSERT, OR EDIT INFORMATION */
 		
-		//Creates statement object
+    //Creates statement object
     Statement statement = connection.createStatement();
 
     // Creates ResultSet object, which contains query results.
-		// The query is the argument of statement.executeQuery()
-		// This particular query asks to return everything from the "event" table in our database.
+    // The query is the argument of statement.executeQuery()
+    // This particular query asks to return everything from the "event" table in our database.
     ResultSet resultSet = statement.executeQuery("SELECT * FROM event");
 
     // While there is another entry, print column values
