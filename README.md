@@ -26,7 +26,7 @@ Once you've made changes to your branch and are ready to merge them into the mai
 3. Click on the green "New pull request" button.
 4. Select your branch from the "Compare" dropdown menu.
 5. Review the changes that you've made in the pull request.
-6. Add a title and description to the pull request to describe the changes you've made.
+6. Add a title and description to the pull request to describe the changes you've made. Also mention me "@ajhela" in the descritpion so I am notified.
 7. Click on the "Create pull request" button.
 
 The configuration manager will review your pull request and make sure that it doesn't have any problems. Once the pull request is approved, the changes will be merged into the main branch and the branch being merged will be deleted.
