@@ -30,3 +30,9 @@ Once you've made changes to your branch and are ready to merge them into the mai
 7. Click on the "Create pull request" button.
 
 The configuration manager will review your pull request and make sure that it doesn't have any problems. Once the pull request is approved, the changes will be merged into the main branch and the branch being merged will be deleted.
+
+## Documentation
+
+The following link leads to the formal documentation of the Mountain Lion Detection System
+
+[TeamMLDS Documentation](https://docs.google.com/document/d/1fMIOFJzIPwH667vx1XU0avUm5Ca0O1Yv35ANDqXkS3A/edit?usp=sharing)
