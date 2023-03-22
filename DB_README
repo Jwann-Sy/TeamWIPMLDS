@@ -1,9 +1,10 @@
 /******************************** DATABASE README ***********************************************
 
 
-This doc will explain the code necessary for communicating with our databases through Java. 
+This doc will explain the code necessary for communicating with our databases through Python. 
 
 HOWEVER, before being able to run any of this code, you must have the MySQL connector driver installed. Instructions for installing it are given at:
+
 https://docs.google.com/document/d/1xUgU9wfVyxRlTqAF7QBl_tOhQHyKztShauqpY3h8sGQ/edit?usp=sharing
 
 This document will also have an entity-relationship diagram of the database to help with data visualization.
