@@ -3,56 +3,49 @@
 
 This doc will explain the code necessary for communicating with our databases through Java. 
 
-HOWEVER, before being able to run any of this code, you must have the JDBC driver installed. Instructions for intalling and running it through the IntelliJ IDE (other IDEs may have a similar process):
-
+HOWEVER, before being able to run any of this code, you must have the MySQL connector driver installed. Instructions for installing it are given at:
 https://docs.google.com/document/d/1xUgU9wfVyxRlTqAF7QBl_tOhQHyKztShauqpY3h8sGQ/edit?usp=sharing
 
-This document will also have a detailed diagram of the databse, so that you understand how the information is being transmitted and where it's being pulled from. 
+This document will also have an entity-relationship diagram of the database to help with data visualization.
 
-Once you have set up the JDBC library, the following code will be helpful for making requests to the database, and adding entries. You will need login credentials to execute this code, and I will be providing those though the discord. 
+Once you have installed the sql connector, you should be able to run the code below. 
 
 
 ********************************* IMPORTS ******************************************************/
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+# this is the mysql connection driver. 
+import mysql.connector
 
 /******************************** CONNECTING TO DATABASE ***************************************/
 
-// The connection must be made within a try-catch statement. 
-try {
-    // getConnection makes connection with a database using three arguments in quotations.
-    // FIRST ARGUMENT: specifies jdbc driver using mysql, followed by the database host address.
-    // SECOND ARGUMENT: database username
-    // THIRD ARGUMENT: database password
-    Connection connection = DriverManager.getConnection(
-            "jdbc:mysql://SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com:3306/mldb", "testuser", "ON***user1");
+# Makes connection to the database:
+def db_connect():
+    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
+    username = "testuser1"
+    password = "ON***user1"
+    database = "mldb"
+	
+	# creates connection object
+    cnx = mysql.connector.connect(user=username,
+                                  password=password,
+                                  host=servername,
+                                  port=3306,
+                                  database=database)
 
-    /**************************** MAKING A QUERY ***********************************************/ 
-    /* A QUERY IN MYSQL IS A WAY TO INTERACT WITH THE DATABASE. YOU CAN USE A QUERY TO REQUEST, INSERT, OR EDIT INFORMATION */
-		
-    //Creates statement object
-    Statement statement = connection.createStatement();
+	########################## REPORT #1: #################################
+    # prints 'view' of 30 day report
+	# comma delimited in the following order:
+	# id, class, date_time, sensor_id, ranger_id
+    mycursor = cnx.cursor()
+    mycursor.execute("SELECT * FROM thirty_days")
+    for db in mycursor:
+        print(db)
 
-    // Creates ResultSet object, which contains query results.
-    // The query is the argument of statement.executeQuery()
-    // This particular query asks to return everything from the "event" table in our database.
-    ResultSet resultSet = statement.executeQuery("SELECT * FROM event");
+    # closes database
+	# always use this at the end of a usage
+	# or we can experience data leakage. 
+    cnx.close()
 
-    // While there is another entry, print column values
-    while (resultSet.next()) {
-        System.out.print(resultSet.getString("id"));
-        System.out.print(", ");
-        System.out.print(resultSet.getString("date_time"));
-        System.out.print(", ");
-        System.out.print(resultSet.getString("sensor_id"));
-        System.out.print(", ");
-        System.out.println(resultSet.getString("ranger_id"));
-    }
-}
-// this is a general exception catch. Basically a very general way of communicating if we have some error. 
-catch (Exception e){
-    e.printStackTrace();
-}
+if __name__ == '__main__':
+    db_connect() 
+
