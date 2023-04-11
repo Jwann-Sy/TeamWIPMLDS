@@ -1,10 +1,12 @@
 import Sensor
 import ControlProgram
+import db_operations
 
 
 def main():
-    animal_type, noise, loc, evaluation = Sensor.Triggered()
-    ControlProgram.Request()
+    while True:
+        Sensor.Triggered()
+        ControlProgram.Request()
 
 
 if __name__ == "__main__":
