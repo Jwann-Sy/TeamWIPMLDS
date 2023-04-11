@@ -9,7 +9,6 @@ passing an integer, make sure to convert it into a string before passing it.
 
 # for database access
 import mysql.connector
-import db_reports
 
 # _______________________ INSERT FUNCTION __________________________________
 # To be used when a ranger needs to identify a sound. Only use ranger_id
@@ -44,3 +43,13 @@ def insert(classif, sensor_id, ranger_id):
     # Closes database
     cnx.close()
 
+
+# _______________________ MAIN ____________________________________________
+if __name__ == '__main__':
+
+    classif = 'definite'
+    sensor_id = '1001'
+    ranger_id = '1213'
+
+    # Inserts new event, given a classification, sensor id, & ranger id
+    insert(classif, sensor_id, ranger_id)
