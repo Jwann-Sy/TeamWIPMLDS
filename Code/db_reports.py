@@ -29,14 +29,15 @@ numbered as such:
 # for database access
 import mysql.connector
 
+# Connection credentials
+servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
+username = "testuser1"
+password = "ON***user1"
+database = "mldb"
+
 
 # Prints all events made within 30 days.
 def report_1():
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -49,7 +50,6 @@ def report_1():
                     WHERE date_time >= \
                     DATE(adddate(curdate(), interval -30 day)) \
                     AND date_time <= DATE(curdate())")
-
     # Prints entries made within the last 30 days
     for db in mycursor:
         # print(db[0], db[1], db[2], db[3], db[4])
@@ -73,10 +73,6 @@ def report_2():
     print("MONTH TO YEAR SUMMARY:")
 
     # Connects to database
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
 
     cnx = mysql.connector.connect(user=username,
                                   password=password,
@@ -126,18 +122,12 @@ def report_2():
     for classif in cursor3.fetchall():
         print(classif[0], "=", classif[1])
 
-
     # Closes connection
     cnx.close()
 
 
 # Prints all entries from most recent to least recent.
 def report_3():
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -158,12 +148,6 @@ def report_3():
 
 # Prints entries of a specific classification.
 def report_4(classification):
-    # Connection credentials
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -191,12 +175,6 @@ def report_4(classification):
 
 # Prints entries made by a specific sensor
 def report_5(sensor_id):
-    # Connection credentials
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -207,8 +185,8 @@ def report_5(sensor_id):
 
     # Query prep
     query = ('SELECT * FROM mldb.event '
-            'WHERE sensor_id = %s '
-            'ORDER BY date_time DESC')
+             'WHERE sensor_id = %s '
+             'ORDER BY date_time DESC')
     sensor_data = (sensor_id,)
 
     # Execute query
@@ -224,12 +202,6 @@ def report_5(sensor_id):
 
 # Prints entries made by a specific ranger
 def report_6(ranger_id):
-    # Connection credentials
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -256,11 +228,6 @@ def report_6(ranger_id):
 
 
 def report_7():
-    servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
-    username = "testuser1"
-    password = "ON***user1"
-    database = "mldb"
-
     cnx = mysql.connector.connect(user=username,
                                   password=password,
                                   host=servername,
@@ -283,27 +250,6 @@ def report_7():
     cnx.close()
 
 
-if __name__ == '__main__':
-    # Report 1: All entries in the last 30 days
-    # report_1()
-
-    # Report 2: Summary of month to year entries
-    # report_2()
-
-    # Report 3: All entries by date
-    # report_3()
-
-    # Report 4: Entries of a specific classification
-    # classification = "false"
-    # report_4(classification)
-
-    # Report 5: Entries by a specific sensor.
-    # sensor_id = 1001
-    # report_5(sensor_id)
-
-    # Report 6: Entries by a specific ranger.
-    # ranger_id = 1213
-    # report_6(ranger_id)
-
-    # Report 7: Graphical representation of sensor entries [NOT FINISHED].
-    # report_7()
+# _______________________ MAIN ____________________________________________
+# if __name__ == '__main__':
+#     report_1()
