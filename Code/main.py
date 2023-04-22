@@ -24,7 +24,7 @@ class MyGUI(QMainWindow):
         self.ui = Ui_edit_entry_window()
         self.ui.setupUi(self.window)
         self.window.show()
-        self.window.days_entries_button.clicked.connect(self.show_entries_message)
+     
 
     def login(self):
         if self.username_edit.text() == "SDranger1" and self.password_edit.text() == "aztecs123":
