@@ -51,12 +51,14 @@ def report_1():
                     DATE(adddate(curdate(), interval -30 day)) \
                     AND date_time <= DATE(curdate())")
     # Prints entries made within the last 30 days
+    report = ""
     for db in mycursor:
         # print(db[0], db[1], db[2], db[3], db[4])
-        print(db)
+        report += str(db).rstrip() + "\n"
 
     # closes database
     cnx.close()
+    return report
 
 
 # Prints month-to-year summary of alert events
@@ -70,7 +72,7 @@ def report_2():
     # Stores total number of events by each sensor
     total_by_sensor = []
 
-    print("MONTH TO YEAR SUMMARY:")
+    report = "MONTH TO YEAR SUMMARY:\n"
 
     # Connects to database
 
@@ -93,7 +95,7 @@ def report_2():
 
     # Prints number of events
     for event in cursor1.fetchall():
-        print("Number of total alerts:", event[0])
+        report += "Number of total alerts: " + str(event[0])
 
     # Query returns the month-to-year out number of events by sensor
     cursor2.execute("SELECT sensor_id, location_name, COUNT(*) \
@@ -105,9 +107,9 @@ def report_2():
                     GROUP BY location_name;")
 
     # Prints number of entries made by each sensor
-    print("\nNumber of alerts by sensor location:")
+    report += "\nNumber of alerts by sensor location:\n"
     for sensor in cursor2.fetchall():
-        print(sensor[1], "=", sensor[2])
+        report += "\t" + str(sensor[1]) + "=" + str(sensor[2]) + "\n"
 
     # Query counts number of month-to-year events by classification
     cursor3.execute("SELECT class, COUNT(*) \
@@ -118,12 +120,13 @@ def report_2():
                     GROUP BY class;")
 
     # Prints number of entries by classification
-    print("\nNumber of alerts by classification:")
+    report += "Number of alerts by classification:\n"
     for classif in cursor3.fetchall():
-        print(classif[0], "=", classif[1])
+        report += "\t" + str(classif[0]) + "=" + str(classif[1]) + "\n"
 
     # Closes connection
     cnx.close()
+    return report
 
 
 # Prints all entries from most recent to least recent.
@@ -138,12 +141,13 @@ def report_3():
     mycursor = cnx.cursor()
     mycursor.execute("SELECT * FROM mldb.event \
                         ORDER BY date_time DESC;")
-
+    report = ""
     for event in mycursor:
-        print(event)
+        report += str(event).rstrip() + "\n"
 
     # closes database
     cnx.close()
+    return report
 
 
 # Prints entries of a specific classification.
@@ -165,12 +169,14 @@ def report_4(classification):
     # Execute query
     cursor.execute(query, classification_data)
 
+    report = ""
     # Prints events
     for event in cursor.fetchall():
-        print(event)
+        report += str(event).rstrip() + "\n"
 
     # Closes connection
     cnx.close()
+    return report
 
 
 # Prints entries made by a specific sensor
@@ -192,13 +198,14 @@ def report_5(sensor_id):
     # Execute query
     cursor.execute(query, sensor_data)
 
+    report = ""
     # Print events
     for event in cursor.fetchall():
-        print(event)
+        report += str(event).rstrip() + "\n"
 
     # closes database
     cnx.close()
-
+    return report
 
 # Prints entries made by a specific ranger
 def report_6(ranger_id):
@@ -219,12 +226,14 @@ def report_6(ranger_id):
     # Execute query
     cursor.execute(query, ranger_data)
 
+    report = ""
     # Prints events
     for event in cursor.fetchall():
-        print(event)
+        report += str(event).rstrip() + "\n"
 
     # Closes connection
     cnx.close()
+    return report
 
 
 def report_7():
@@ -250,6 +259,7 @@ def report_7():
     cnx.close()
 
 
-# _______________________ MAIN ____________________________________________
+# # _______________________ MAIN ____________________________________________
 # if __name__ == '__main__':
-#     report_1()
+#     report1 = report_2()
+#     print(report1)
