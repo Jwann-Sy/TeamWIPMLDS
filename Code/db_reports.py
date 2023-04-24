@@ -109,7 +109,7 @@ def report_2():
     # Prints number of entries made by each sensor
     report += "\nNumber of alerts by sensor location:\n"
     for sensor in cursor2.fetchall():
-        report += "\t" + str(sensor[1]) + "=" + str(sensor[2]) + "\n"
+        report += "\t\t" + str(sensor[1]) + "=" + str(sensor[2]) + "\n"
 
     # Query counts number of month-to-year events by classification
     cursor3.execute("SELECT class, COUNT(*) \
@@ -122,7 +122,7 @@ def report_2():
     # Prints number of entries by classification
     report += "Number of alerts by classification:\n"
     for classif in cursor3.fetchall():
-        report += "\t" + str(classif[0]) + "=" + str(classif[1]) + "\n"
+        report += "\t\t" + str(classif[0]) + "=" + str(classif[1]) + "\n"
 
     # Closes connection
     cnx.close()

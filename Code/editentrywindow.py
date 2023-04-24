@@ -15,7 +15,7 @@ class Ui_edit_entry_window(object):
     def setupUi(self, edit_entry_window):
         edit_entry_window.setObjectName("edit_entry_window")
         edit_entry_window.resize(800, 600)
-        edit_entry_window.setStyleSheet("color: rgb(255, 255, 255);")
+        # edit_entry_window.setStyleSheet("color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(edit_entry_window)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)

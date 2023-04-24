@@ -4,6 +4,7 @@ import sys
 import random
 
 import db_reports
+from db_operations import edit_classif
 from reportwindow2 import Ui_reports_window
 from editentrywindow import Ui_edit_entry_window
 import Alarm
@@ -31,10 +32,7 @@ class MyGUI(QMainWindow):
         self.openReportWindow = ReportGUI()
 
     def openEditEntryWindow(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_edit_entry_window()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        self.openEditEntryWindow = EditGUI()
 
     def login(self):
         if self.username_edit.text() == "SDranger1" and self.password_edit.text() == "aztecs123":
@@ -50,6 +48,27 @@ class MyGUI(QMainWindow):
         self.show_alerts_button.setDisabled(True)
 
 
+class EditGUI(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(EditGUI, self).__init__()
+        self.ui = Ui_edit_entry_window()
+        self.ui.setupUi(self)
+        self.ui.setupUi(self)
+        self.show()
+        self.ui.pushButton.clicked.connect(self.submitEdit)
+
+    def submitEdit(self):
+        valid_ranger_ids = ["1213", "1415", "1617"]
+        valid_class = ["definite", "suspected", "false"]
+
+        event = self.ui.lineEdit.text()
+        ranger_id = self.ui.lineEdit_2.text()
+        class_edit = self.ui.lineEdit_3.text()
+        if ranger_id in valid_ranger_ids and class_edit in valid_class:
+            edit_classif(event, class_edit, ranger_id)
+            self.close()
+
+
 class ReportGUI(QtWidgets.QMainWindow):
     def __init__(self):
         super(ReportGUI, self).__init__()
@@ -63,9 +82,13 @@ class ReportGUI(QtWidgets.QMainWindow):
         self.ui.class_false_button.clicked.connect(self.classFalseReport)
         self.ui.sensorid_enter_button.clicked.connect(self.sensorIDReport)
         self.ui.rangerid_enter_button.clicked.connect(self.rangerIDReport)
+        self.ui.month_to_year_button.clicked.connect(self.monthToYearSum)
 
     def daysEntriesReport(self):
         printReport(db_reports.report_1())
+
+    def monthToYearSum(self):
+        printReport(db_reports.report_2())
 
     def entriesByDateReport(self):
         printReport(db_reports.report_3())
