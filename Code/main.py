@@ -64,6 +64,10 @@ class EditGUI(QtWidgets.QMainWindow):
         event = self.ui.lineEdit.text()
         ranger_id = self.ui.lineEdit_2.text()
         class_edit = self.ui.lineEdit_3.text()
+        if ranger_id not in valid_ranger_ids:
+            QMessageBox.information(self, "Error", "Invalid ranger ID.")
+        if class_edit not in valid_class:
+            QMessageBox.information(self, "Error", "Invalid classification.")
         if ranger_id in valid_ranger_ids and class_edit in valid_class:
             edit_classif(event, class_edit, ranger_id)
             self.close()
@@ -119,18 +123,30 @@ class ReportGUI(QtWidgets.QMainWindow):
             QMessageBox.information(self, "Error", "Invalid ID")
 
 
+class ScrollMessageBox(QMessageBox):
+    def __init__(self, text, *args, **kwargs):
+        QMessageBox.__init__(self, *args, **kwargs)
+        scroll = QScrollArea(self)
+        scroll.setWidgetResizable(True)
+        self.content = QWidget()
+        scroll.setWidget(self.content)
+        lay = QVBoxLayout(self.content)
+        for item in text.split('\n'):
+            lay.addWidget(QLabel(item, self))
+        self.layout().addWidget(scroll, 0, 0, 1, self.layout().columnCount())
+        self.setStyleSheet("QScrollArea{min-width:500 px; min-height: 400px}")
+
+
+def printReport(text):
+    result = ScrollMessageBox(text, None)
+    result.exec_()
+
+
 def main():
     app = QApplication(sys.argv)
     window = MyGUI()
     window.show()
     sys.exit(app.exec_())
-
-
-def printReport(text):
-    message = QMessageBox()
-    message.setText(text)
-    message.setStyleSheet("QLabel{min-width: 500px;}")
-    message.exec_()
 
 
 if __name__ == '__main__':

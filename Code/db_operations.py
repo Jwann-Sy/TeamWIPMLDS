@@ -9,7 +9,10 @@ passing an integer, make sure to convert it into a string before passing it.
 
 # for database access
 import mysql.connector
-import db_reports
+# for datetime objects
+import datetime
+from datetime import datetime
+
 
 # _______________________ INSERT FUNCTION __________________________________
 # To be used when a ranger needs to identify a sound. Only use ranger_id
@@ -19,6 +22,10 @@ import db_reports
 
 # inserts an 'event' entry, given a ranger_id, classification, and sensor_id
 def insert(classif, sensor_id, ranger_id):
+    # stores current computer time
+    now = datetime.now()
+    date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+
     servername = "SG-mldb7sdsu-7331-mysql-master.servers.mongodirector.com"
     username = "testuser1"
     password = "ON***user1"
@@ -29,13 +36,14 @@ def insert(classif, sensor_id, ranger_id):
                                   password=password,
                                   host=servername,
                                   port=3306,
-                                  database=database)
+                                  database=database,
+                                  autocommit=True)
     cursor = cnx.cursor()
 
     # Query does an INSERT into the database using variables passed.
-    query = 'INSERT INTO mldb.event(class, sensor_id, ranger_id)'\
-            'VALUES(%s, %s, %s)'
-    insert_data = (classif, sensor_id, ranger_id)
+    query = 'INSERT mldb.event(class, date_time, sensor_id, ranger_id)'\
+            'VALUES(%s, %s, %s, %s)'
+    insert_data = (classif, date_time, sensor_id, ranger_id)
     cursor.execute(query, insert_data)
 
     # Commits changes

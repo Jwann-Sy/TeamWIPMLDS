@@ -1,5 +1,8 @@
 import sys
 import random
+
+from PyQt5.QtWidgets import QMessageBox
+
 from db_operations import insert
 from PyQt5 import QtWidgets, QtGui, QtCore
 
@@ -80,6 +83,7 @@ class AlarmWindow(QtWidgets.QMainWindow):
             self.radio_group.setEnabled(True)
         else:
             self.radio_group.setEnabled(False)
+            QMessageBox.information(self, "Error", "Invalid ranger ID")
 
     def enable_turn_off(self):
         if self.suspected_radio.isChecked() or self.false_radio.isChecked() or self.definite_radio.isChecked():
