@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'reportwindow2.ui'
+# Form implementation generated from reading ui file '/Users/johngill/PycharmProjects/pythonProject2/reportwindow2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,20 +14,20 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_reports_window(object):
     def setupUi(self, reports_window):
         reports_window.setObjectName("reports_window")
-        reports_window.resize(1440, 900)
+        reports_window.resize(1440, 760)
         self.centralwidget = QtWidgets.QWidget(reports_window)
         self.centralwidget.setObjectName("centralwidget")
         self.days_entries_button = QtWidgets.QPushButton(self.centralwidget)
-        self.days_entries_button.setGeometry(QtCore.QRect(20, 40, 131, 26))
+        self.days_entries_button.setGeometry(QtCore.QRect(20, 70, 131, 26))
         self.days_entries_button.setObjectName("days_entries_button")
         self.entries_by_date_button = QtWidgets.QPushButton(self.centralwidget)
-        self.entries_by_date_button.setGeometry(QtCore.QRect(20, 70, 131, 26))
+        self.entries_by_date_button.setGeometry(QtCore.QRect(20, 100, 131, 26))
         self.entries_by_date_button.setObjectName("entries_by_date_button")
         self.graphicalreport_button = QtWidgets.QPushButton(self.centralwidget)
-        self.graphicalreport_button.setGeometry(QtCore.QRect(20, 100, 131, 26))
+        self.graphicalreport_button.setGeometry(QtCore.QRect(20, 130, 131, 26))
         self.graphicalreport_button.setObjectName("graphicalreport_button")
         self.main_label = QtWidgets.QLabel(self.centralwidget)
-        self.main_label.setGeometry(QtCore.QRect(280, 10, 131, 20))
+        self.main_label.setGeometry(QtCore.QRect(170, 30, 151, 31))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.main_label.setFont(font)
@@ -71,7 +71,7 @@ class Ui_reports_window(object):
         self.rangerid_enter_button.setGeometry(QtCore.QRect(340, 410, 81, 26))
         self.rangerid_enter_button.setObjectName("rangerid_enter_button")
         self.month_to_year_button = QtWidgets.QPushButton(self.centralwidget)
-        self.month_to_year_button.setGeometry(QtCore.QRect(20, 130, 131, 26))
+        self.month_to_year_button.setGeometry(QtCore.QRect(20, 160, 131, 26))
         self.month_to_year_button.setObjectName("month_to_year_button")
         reports_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(reports_window)
