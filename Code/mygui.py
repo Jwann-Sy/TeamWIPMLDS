@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mygui.ui'
+# Form implementation generated from reading ui file '/Users/johngill/PycharmProjects/pythonProject2/mygui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,70 +9,67 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from reportwindow2 import Ui_reports_window
-class Ui_MainWindow(object):
-    def openWindow(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_reports_window()
-        self.ui.setupUi(self.window)
-        MainWindow.hide()
-        self.window.show()
 
+
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1440, 900)
+        MainWindow.resize(650, 500)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.username_label = QtWidgets.QLabel(self.centralwidget)
-        self.username_label.setGeometry(QtCore.QRect(10, 30, 71, 16))
+        self.username_label.setGeometry(QtCore.QRect(30, 60, 71, 16))
         self.username_label.setObjectName("username_label")
         self.password_label = QtWidgets.QLabel(self.centralwidget)
-        self.password_label.setGeometry(QtCore.QRect(220, 30, 60, 16))
+        self.password_label.setGeometry(QtCore.QRect(250, 60, 60, 16))
         self.password_label.setObjectName("password_label")
         self.username_edit = QtWidgets.QLineEdit(self.centralwidget)
-        self.username_edit.setGeometry(QtCore.QRect(80, 30, 113, 22))
+        self.username_edit.setGeometry(QtCore.QRect(110, 60, 113, 22))
         self.username_edit.setObjectName("username_edit")
         self.password_edit = QtWidgets.QLineEdit(self.centralwidget)
-        self.password_edit.setGeometry(QtCore.QRect(280, 30, 113, 22))
+        self.password_edit.setGeometry(QtCore.QRect(320, 60, 113, 22))
         self.password_edit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_edit.setObjectName("password_edit")
         self.login_button = QtWidgets.QPushButton(self.centralwidget)
-        self.login_button.setGeometry(QtCore.QRect(410, 30, 81, 26))
+        self.login_button.setGeometry(QtCore.QRect(450, 60, 81, 26))
         self.login_button.setObjectName("login_button")
         self.show_alerts_button = QtWidgets.QPushButton(self.centralwidget)
         self.show_alerts_button.setEnabled(False)
-        self.show_alerts_button.setGeometry(QtCore.QRect(60, 150, 141, 26))
+        self.show_alerts_button.setGeometry(QtCore.QRect(30, 200, 141, 26))
         self.show_alerts_button.setObjectName("show_alerts_button")
         self.open_library_button = QtWidgets.QPushButton(self.centralwidget)
         self.open_library_button.setEnabled(False)
-        self.open_library_button.setGeometry(QtCore.QRect(60, 190, 141, 26))
+        self.open_library_button.setGeometry(QtCore.QRect(30, 250, 141, 26))
         self.open_library_button.setObjectName("open_library_button")
         self.show_report_button = QtWidgets.QPushButton(self.centralwidget)
         self.show_report_button.setEnabled(False)
-        self.show_report_button.setGeometry(QtCore.QRect(60, 70, 141, 26))
+        self.show_report_button.setGeometry(QtCore.QRect(30, 100, 141, 26))
         self.show_report_button.setObjectName("show_report_button")
-
-        self.show_report_button.clicked.connect(self.openWindow)
-
         self.edit_entries_button = QtWidgets.QPushButton(self.centralwidget)
         self.edit_entries_button.setEnabled(False)
-        self.edit_entries_button.setGeometry(QtCore.QRect(60, 110, 141, 26))
+        self.edit_entries_button.setGeometry(QtCore.QRect(30, 150, 141, 26))
         self.edit_entries_button.setObjectName("edit_entries_button")
         self.show_reports_label = QtWidgets.QLabel(self.centralwidget)
-        self.show_reports_label.setGeometry(QtCore.QRect(230, 70, 181, 21))
+        self.show_reports_label.setGeometry(QtCore.QRect(200, 100, 181, 21))
         self.show_reports_label.setObjectName("show_reports_label")
         self.edit_entries_label = QtWidgets.QLabel(self.centralwidget)
-        self.edit_entries_label.setGeometry(QtCore.QRect(230, 110, 181, 21))
+        self.edit_entries_label.setGeometry(QtCore.QRect(200, 150, 181, 21))
         self.edit_entries_label.setObjectName("edit_entries_label")
         self.show_alerts_label = QtWidgets.QLabel(self.centralwidget)
-        self.show_alerts_label.setGeometry(QtCore.QRect(230, 150, 251, 31))
+        self.show_alerts_label.setGeometry(QtCore.QRect(200, 200, 251, 31))
         self.show_alerts_label.setObjectName("show_alerts_label")
         self.open_library_label = QtWidgets.QLabel(self.centralwidget)
-        self.open_library_label.setGeometry(QtCore.QRect(230, 190, 181, 21))
+        self.open_library_label.setGeometry(QtCore.QRect(200, 250, 181, 21))
         self.open_library_label.setObjectName("open_library_label")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(30, 30, 591, 31))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1440, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 650, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -102,6 +99,7 @@ class Ui_MainWindow(object):
         self.edit_entries_label.setText(_translate("MainWindow", "Edit an entry by file name"))
         self.show_alerts_label.setText(_translate("MainWindow", "Displays alerts that need a classification"))
         self.open_library_label.setText(_translate("MainWindow", "Goes to audio file directory"))
+        self.label.setText(_translate("MainWindow", "Mountain Lion Detection System"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.actionClose.setText(_translate("MainWindow", "Close"))
 
