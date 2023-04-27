@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'editentrywindow.ui'
+# Form implementation generated from reading ui file '/Users/johngill/PycharmProjects/pythonProject2/editentrywindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -15,35 +15,35 @@ class Ui_edit_entry_window(object):
     def setupUi(self, edit_entry_window):
         edit_entry_window.setObjectName("edit_entry_window")
         edit_entry_window.resize(800, 600)
-        # edit_entry_window.setStyleSheet("color: rgb(255, 255, 255);")
+        edit_entry_window.setStyleSheet("color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(edit_entry_window)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 40, 211, 16))
+        self.label.setGeometry(QtCore.QRect(20, 60, 211, 16))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(20, 100, 211, 16))
+        self.label_2.setGeometry(QtCore.QRect(20, 120, 211, 16))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 160, 211, 16))
+        self.label_3.setGeometry(QtCore.QRect(20, 180, 211, 16))
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(20, 220, 111, 16))
+        self.label_4.setGeometry(QtCore.QRect(20, 240, 111, 16))
         self.label_4.setObjectName("label_4")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 60, 151, 22))
+        self.lineEdit.setGeometry(QtCore.QRect(20, 80, 151, 22))
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(20, 120, 151, 22))
+        self.lineEdit_2.setGeometry(QtCore.QRect(20, 140, 151, 22))
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(20, 180, 151, 22))
+        self.lineEdit_3.setGeometry(QtCore.QRect(20, 200, 151, 22))
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 240, 81, 26))
+        self.pushButton.setGeometry(QtCore.QRect(20, 260, 81, 26))
         self.pushButton.setObjectName("pushButton")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(160, 10, 101, 20))
+        self.label_5.setGeometry(QtCore.QRect(110, 10, 201, 41))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.label_5.setFont(font)
