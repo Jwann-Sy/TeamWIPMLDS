@@ -100,6 +100,7 @@ class AlarmWindow(QtWidgets.QMainWindow):
         elif self.definite_radio.isChecked():
             insert("definite", SensorID, RangerID)
         Submitted = True
+        self.close()
 
     def closeEvent(self, evnt):
         global Submitted

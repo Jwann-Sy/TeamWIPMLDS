@@ -7,6 +7,8 @@ import db_reports
 from db_operations import edit_classif
 from reportwindow2 import Ui_reports_window
 from editentrywindow import Ui_edit_entry_window
+from graphical_report import sensor_data_to_list, graphical_report
+from open_library import send_to_dir
 import Alarm
 
 
@@ -20,6 +22,7 @@ class MyGUI(QMainWindow):
         self.show_report_button.clicked.connect(self.openReportWindow)
         self.edit_entries_button.clicked.connect(self.openEditEntryWindow)
         self.show_alerts_button.clicked.connect(self.openAlarm)
+        self.open_library_button.clicked.connect(self.openLibrary)
 
         # disable alarm button for a random time between 30 and 60 seconds
         self.disable_alarm_button(random.randint(30000, 40000))
@@ -46,6 +49,9 @@ class MyGUI(QMainWindow):
         self.window = Alarm.AlarmWindow()
         self.window.show()
         self.show_alerts_button.setDisabled(True)
+
+    def openLibrary(self):
+        send_to_dir()
 
 
 class EditGUI(QtWidgets.QMainWindow):
@@ -87,6 +93,7 @@ class ReportGUI(QtWidgets.QMainWindow):
         self.ui.sensorid_enter_button.clicked.connect(self.sensorIDReport)
         self.ui.rangerid_enter_button.clicked.connect(self.rangerIDReport)
         self.ui.month_to_year_button.clicked.connect(self.monthToYearSum)
+        self.ui.graphicalreport_button.clicked.connect(self.graphicalReport)
 
     def daysEntriesReport(self):
         printReport(db_reports.report_1())
@@ -111,16 +118,16 @@ class ReportGUI(QtWidgets.QMainWindow):
         sensor_id = self.ui.sensor_id_text.text()
         if sensor_id in valid_senor_ids:
             printReport(db_reports.report_5(sensor_id))
-        else:
-            QMessageBox.information(self, "Error", "Invalid ID")
 
     def rangerIDReport(self):
         valid_ranger_ids = ["1213", "1415", "1617", "1819"]
         ranger_id = self.ui.rangerid_text.text()
         if ranger_id in valid_ranger_ids:
             printReport(db_reports.report_6(ranger_id))
-        else:
-            QMessageBox.information(self, "Error", "Invalid ID")
+
+    def graphicalReport(self):
+        longitude, latitude, sensor_count, sensor_month_count = sensor_data_to_list()
+        graphical_report(longitude, latitude, sensor_count, sensor_month_count)
 
 
 class ScrollMessageBox(QMessageBox):

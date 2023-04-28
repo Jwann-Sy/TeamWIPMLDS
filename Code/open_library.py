@@ -5,5 +5,6 @@ import os
 def send_to_dir():
     os.startfile(r'C:\Users\spagh\Desktop\CS 532 Project\Sounds')
 
-# Main
-send_to_dir()
+
+if __name__ == '__main__':
+    send_to_dir()
