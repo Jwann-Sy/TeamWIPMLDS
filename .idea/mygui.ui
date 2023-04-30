@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>650</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="username_label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Username </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="password_label">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>90</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="username_edit">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>90</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password_edit">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>90</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="login_button">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>90</y>
+      <width>81</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="show_alerts_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Alerts</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="open_library_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>280</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open Library</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="show_report_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Reports</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="edit_entries_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edit Entries</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="show_reports_label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>130</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Displays database reports</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="edit_entries_label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>180</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edit an entry by file name</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="show_alerts_label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>230</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Displays alerts that need a classification</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="open_library_label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>280</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Goes to audio file directory</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>591</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mountain Lion Detection System</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>650</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
