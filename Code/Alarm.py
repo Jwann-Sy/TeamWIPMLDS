@@ -83,7 +83,6 @@ class AlarmWindow(QtWidgets.QMainWindow):
             self.radio_group.setEnabled(True)
         else:
             self.radio_group.setEnabled(False)
-            QMessageBox.information(self, "Error", "Invalid ranger ID")
 
     def enable_turn_off(self):
         if self.suspected_radio.isChecked() or self.false_radio.isChecked() or self.definite_radio.isChecked():
